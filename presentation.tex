@@ -34,28 +34,128 @@
     \titlepage
 \end{frame}
 
+\section{Introduction} %--------------------------------------------------------
+\subsection{}
+
 \begin{frame}
-    \frametitle{What are you trying to achieve?}
+    \frametitle{Background}
     
-    This is a really long line of text isn't it baa hahahh ahahah a hhah haha
-    \\
+    Course requires building a game arcade
+    \\~\\
+    Currently:
     
-    \begin{columns}
-        \column{.5\textwidth}
-            Text for your first column
-        \column{.5\textwidth}
-            Text for your second column
-    \end{columns}
+    \begin{itemize}
+        \item   Total rebuild of the client to add games
+        \item   Class paths are hard-coded
+    \end{itemize}
     
 \end{frame}
 
 \begin{frame}
-    \frametitle{How are you going about it?}
+    \frametitle{Context}
     
-    \begin{block}{Block title}
-        This is a block in blue
-    \end{block}
+    How a package manager can improve this
+    \begin{itemize}
+        \item   Downloadable games
+        \item   Dynamic loading
+    \end{itemize}
+    
 \end{frame}
+
+\section{Operation} %-----------------------------------------------------------
+\subsection{}
+
+\begin{frame}
+    \frametitle{Operational Concept}
+    
+    Downloading a game
+    
+    \begin{enumerate}
+        \item   The user selects a game from the store
+        \item   The client store sends the selected games ID to the server
+        \item   The server passes the game ID to the package manager
+        \item   The server package manager looks up the games path in the 
+                database using the game ID
+        \item   The server package manager retrieves the game from the 
+                RELEASE directory and pushes it to the client
+        \item   The client package manager receives the game and places it in 
+                the GAME directory
+        \item   The client package manager places the game in the class path
+        \item   The client library is updated to include the game
+        \item   The game is now available to be run
+    \end{enumerate}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Operational Concept}
+    
+    Updating a game
+    
+    \begin{itemize}
+        \item   TBA
+        \item   Ideally will involve patching a .jar file
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Operational Capabilities}
+
+    \begin{itemize}
+        \item   Find game path on server given game ID
+        \item   Interface with the game store
+        \item   Interface with the game library
+        \item   Store JAR files on the server in a directory
+        \item   Store JAR files on the client in a directory
+        \item   Send JAR files from the server to the client
+        \item   Modification of the class path when a new game is added
+        \item   Capability to update games may be added later
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Operational Constraints}
+    
+    \uncover<1->{
+    Game constraints
+
+    \begin{itemize}
+        \item   Package games as .jars
+        \item   May need to be in specific directories
+    \end{itemize}
+    }
+    
+    \uncover<2->{
+    Game store constraints
+
+    \begin{itemize}
+        \item   Pass game ID's to the server package manager
+    \end{itemize}
+    }
+    
+    \uncover<3->{
+    Game library constraints
+
+    \begin{itemize}
+        \item   Track .jars in game folder
+        \item   May need an interface to add games when they're downloaded
+    \end{itemize}
+    }
+    
+    \uncover<4->{
+    Database constraints
+
+    \begin{itemize}
+        \item   A database shall exist on the server that include the games 
+                ID and the path of the game
+    \end{itemize}
+    }
+\end{frame}
+
+
+\section{Architecture} %--------------------------------------------------------
+\subsection{}
 
 \begin{frame}
     \frametitle{Logical Architecture}
@@ -69,20 +169,67 @@
     
 \end{frame}
 
+\section{Progress} %------------------------------------------------------------
+\subsection{}
+
 \begin{frame}
-    \frametitle{How is it coming along?}
+    \frametitle{Progress}
     
-    \begin{block}{Block title}
-        This is a block in blue
-    \end{block}
+    Completed:
+    
+    \begin{itemize}
+        \item   Understand current system (Reflection, Gradle tasks)
+        \item   Determine architecture
+        \item   Set up of server package manager
+        \item   Set up of client package manager
+        \item   Class paths read from text file
+        \item   Pack games into .jars
+    \end{itemize}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Progress}
+    
+    Being done now:
+    
+    \begin{itemize}
+        \item   Package client connecting to package server
+        \item   Populate release folder
+        \item   Server setting up database connection
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Progress}
+    
+    To be done:
+    
+    \begin{itemize}
+        \item   Interface with other groups
+        \item   Fetch game from server
+    \end{itemize}
+\end{frame}
+
+\section{Feedback} %------------------------------------------------------------
+\subsection{}
 
 \begin{frame}
     \frametitle{Feedback}
     
-    \begin{block}{Block title}
-        This is a block in blue
-    \end{block}
+    \begin{itemize}
+        \item   System interfaces
+        \begin{itemize}
+            \item   will this affect your group negatively?
+        \end{itemize}
+        \item   System architecture
+        \begin{itemize}
+            \item   are there any flaws or redundancies?
+        \end{itemize}
+        \item   Possible improvements?
+        \begin{itemize}
+            \item   What could be structured differently, or extra features?
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 
