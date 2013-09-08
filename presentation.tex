@@ -47,6 +47,7 @@
     \begin{itemize}
         \item   Total rebuild of the client to add games
         \item   Class paths are hard-coded
+        \item   Arcade has very high cohesion
     \end{itemize}
     
 \end{frame}
@@ -117,40 +118,33 @@
 \begin{frame}
     \frametitle{Operational Constraints}
     
-    \uncover<1->{
     Game constraints
 
     \begin{itemize}
         \item   Package games as .jars
         \item   May need to be in specific directories
     \end{itemize}
-    }
     
-    \uncover<2->{
     Game store constraints
 
     \begin{itemize}
         \item   Pass game ID's to the server package manager
     \end{itemize}
-    }
     
-    \uncover<3->{
     Game library constraints
 
     \begin{itemize}
         \item   Track .jars in game folder
         \item   May need an interface to add games when they're downloaded
     \end{itemize}
-    }
-    
-    \uncover<4->{
+
     Database constraints
 
     \begin{itemize}
         \item   A database shall exist on the server that include the games 
                 ID and the path of the game
     \end{itemize}
-    }
+
 \end{frame}
 
 
